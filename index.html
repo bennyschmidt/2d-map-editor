@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>2D Map Editor</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script>let exports = window.exports = {};</script>
+  </head>
+  <body>
+    <div id="root">
+      <aside id="notification"></aside>
+      <section id="palette"></section>
+      <section id="editor-buttons">
+        <button>Toggle Terrain</button>
+        <button>Toggle Canopy</button>
+        <button>Toggle Light</button>
+      </section>
+      <section id="editor-layer">
+        <button id="export">Export</button>
+        <select name="layers" id="layer-select">
+          <option value="">--Select a layer--</option>
+          <option value="light">Light</option>
+          <option value="canopy">Canopy</option>
+          <option value="terrain">Terrain</option>
+        </select>
+      </section>
+      <section id="main">
+        <div id="TileMap"></div>
+      </section>
+    </div>
+    <script src="src/js/dusk-sdk.js"></script>
+    <script src="src/js/maps/Example.js"></script>
+    <script src="src/js/components/TileMap2D/index.js"></script>
+    <script defer src="src/js/components/Application/index.js"></script>
+  </body>
+</html>

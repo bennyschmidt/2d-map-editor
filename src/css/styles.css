@@ -1,0 +1,123 @@
+html, body {
+  font: 400 normal 14px sans-serif;
+  background: black;
+  overflow: hidden;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#Scene-terrain.hide,
+#Scene-light.hide,
+#Scene-canopy.hide {
+  display: none;
+}
+
+
+#root {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+#main {
+  position: absolute;
+  width: 100vw;
+  height: 56.27vw;
+  max-height: 100vh;
+  overflow: hidden;
+  background: black;
+}
+
+#main.target {
+  cursor: crosshair;
+}
+
+#Scene-terrain,
+#Scene-canopy,
+#Scene-light {
+  position: fixed;
+  background: black;
+  border-radius: .5rem;
+  cursor: pointer;
+  image-rendering: pixelated;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+#Scene-terrain.death,
+#Scene-canopy.death,
+#Scene-light.death {
+  filter: grayscale(80%) hue-rotate(20deg) blur(3px);
+}
+
+#Scene-light.death {
+  filter: grayscale(20%) hue-rotate(40deg) blur(3rem);
+}
+
+#Scene-canopy {
+  z-index: 300;
+  background: transparent;
+}
+
+#Scene-light {
+  z-index: 400;
+  background: transparent;
+  filter: blur(3rem);
+}
+
+#TileMap {
+  overflow: auto;
+  transform-origin: calc(50vw) calc(25vw);
+}
+
+#GUI,
+#TileMap {
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 56.27vw;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+#editor-buttons,
+#editor-layer,
+#palette {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  left: 1rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 16rem;
+  background: rgba(0, 0, 0, 0.25);
+  overflow: auto;
+  z-index: 1000;
+}
+
+#editor-buttons,
+#editor-layer {
+  flex-direction: column-reverse;
+  width: auto;
+  top: auto;
+  left: auto;
+  right: 1rem;
+}
+
+#editor-layer {
+  bottom: auto;
+  top: 1rem;
+}
+
+#editor-buttons > button,
+#palette > .tile {
+  display: block;
+  width: calc(100% - 2rem);
+  margin: .5rem 1rem;
+}
+
+#palette > .tile {
+  width: 6rem;
+  height: 6rem;
+}
